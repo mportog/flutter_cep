@@ -10,9 +10,7 @@ class MyApp extends StatelessWidget {
       showSemanticsDebugger: false,
       debugShowCheckedModeBanner: false,
       title: 'Flutter Correios',
-      theme: ThemeData(
-        primarySwatch: Colors.yellow,
-      ),
+      theme: ThemeData(primaryColor: Colors.yellow[800]),
       home: HomePage(),
     );
   }

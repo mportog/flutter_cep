@@ -22,16 +22,17 @@ class ApiCorreios {
     }
   }
 
-  getJsonData() async {
+  getJsonData(String endereco) async {
     try {
-      String url = 'https://viacep.com.br/ws/09210200/json/';
-      //'https://viacep.com.br/ws/RS/Porto%20Alegre/Domingos+Jose/json/';
+      String url = 'https://viacep.com.br/ws/$endereco/json/';
       http.Response response = await http.get(url);
-      var jsonData = json.decode(response.body);
-      var resposta = CepResponse.fromJson(jsonData);
-      // var resposta = CepResponse.fromJson(jsonData);
-      print('resposta: $resposta');
-      return resposta;
+      //if(response.statusCode ==200)
+      return json.decode(response.body);
+      //var resposta = CepResponse.fromJson(jsonData);
+      // for (var response in jsonData)
+      //   cepList.add(CepResponse.fromJson(response));
+      //print('resposta: ${cepList.length}');
+      // return resposta;
     } catch (e) {
       print('erro ao conveter xml $e');
     }
